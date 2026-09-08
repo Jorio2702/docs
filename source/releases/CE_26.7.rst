@@ -149,6 +149,13 @@ A hotfix release was issued as 26.7.3_8:
 * ui: improve form matching for help/advanced
 * ui: fix _showMaximized() height calculation when mobile navigation triggers below 768px width
 
+A hotfix release was issued as 26.7.3_11:
+
+* system: flush volt template cache in shared action
+* interfaces: exclude VLAN devices from virtual queue
+* ui: attach selectors piped through replaceInputWithSelector to body
+* ports: openvpn 2.7.7 `[24] <https://github.com/OpenVPN/openvpn/blob/v2.7.7/Changes.rst>`__ 
+
 
 
 --------------------------------------------------------------------------
