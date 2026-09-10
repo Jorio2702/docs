@@ -687,6 +687,7 @@ action, we will go back to the index.volt view and add the following
 jQuery / framework code between the braces of “saveFormToEndPoint”.
 
 .. code-block:: javascript
+    :caption: /usr/local/opnsense/mvc/app/views/OPNsense/HelloWorld/index.volt
 
     ajaxCall(url="/api/helloworld/service/reload", sendData={},callback=function(data,status) {
         // action to run after reload
@@ -797,6 +798,7 @@ elements:
 | (in script section)
 
 .. code-block:: javascript
+    :caption: /usr/local/opnsense/mvc/app/views/OPNsense/HelloWorld/index.volt
 
     $("#testAct").SimpleActionButton({
         onAction: function(data) {
