@@ -129,7 +129,9 @@ Skeleton
    :name: setup-a-skeleton-for-the-frontend-middleware
 
 First step for our project is to build a skeleton which holds the
-structure for our frontend/middleware.
+structure for our frontend/middleware. Do keep in mind to only
+build the structure, if you add empty files this will
+cause errors.
 
 Model
 -----
@@ -559,9 +561,6 @@ Add this to the index.volt template from the HelloWorld module:
             $("#saveAct").click(function(){
                 saveFormToEndpoint("/api/helloworld/settings/set",'frm_GeneralSettings',function(){
                     // action to run after successful save, for example reconfigure service.
-                    ajaxCall(url="/api/helloworld/service/reload", sendData={},callback=function(data,status) {
-                        // action to run after reload
-                    });
                 });
             });
         });
