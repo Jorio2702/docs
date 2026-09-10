@@ -769,7 +769,7 @@ elements:
 
     $("#testAct").SimpleActionButton({
         onAction: function(data) {
-            $("#responseMsg").html(data['message']);
+            $("#responseMsg").removeClass("hidden").html(data['message']);
         }
     });
 
