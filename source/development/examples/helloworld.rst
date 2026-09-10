@@ -885,10 +885,9 @@ adding this content into the Menu.xml:
     :caption: /usr/local/opnsense/mvc/app/models/OPNsense/HelloWorld/Menu/Menu.xml
 
     <menu>
-        <!-- Plugin HelloWorld menu -->
-        <User order="999">
-            <HelloWorld VisibleName="Hello World!" url="/ui/helloworld/"/>
-        </User>
+        <Lobby>
+            <HelloWorld VisibleName="Hello World!" cssClass="fa fa-comment-o fa-fw" url="/ui/helloworld"/>
+        </Lobby>
     </menu>
 
 The menu system is subject to caching, so you may not see your changes
