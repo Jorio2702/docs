@@ -264,8 +264,7 @@ extend the corresponding class.
 
 For our modules we create two API controllers, one for controlling
 settings and one for performing service actions. (Named
-SettingsController.php and ServiceController.php) Both should look like
-this (replace Settings with Service for the other one):
+SettingsController.php and ServiceController.php)
 
 .. code-block:: php
     :caption: /usr/local/opnsense/mvc/app/controllers/OPNsense/HelloWorld/Api/SettingsController.php
@@ -276,8 +275,29 @@ this (replace Settings with Service for the other one):
     use \OPNsense\Base\ApiMutableModelControllerBase;
     class SettingsController extends ApiMutableModelControllerBase
     {
+        public function getAction()
+        {
+            $data = parent::getAction();
+            $data[self::$internalModelName]['general']['%ToEmail'] = gettext('Enter recipient here');
+
+            return $data;
+        }
     }
 
+.. Note::
+    The :code:`getAction()` function can add dynamic extra information to data fetches. When we get to fetching the data 
+    this will be further explained. 
+
+.. code-block:: php
+    :caption: /usr/local/opnsense/mvc/app/controllers/OPNsense/HelloWorld/Api/ServiceController.php
+
+    <?php
+    namespace OPNsense\HelloWorld\Api;
+     
+    use \OPNsense\Base\ApiMutableServiceControllerBase;
+    class ServiceController extends ApiMutableServiceControllerBase
+    {
+    }
 
 .. Note::
     For the sake of simplicity we use :code:`ApiMutableModelControllerBase` in our example, in practice this
@@ -465,6 +485,17 @@ it should return the data.  For this we add two lines to the controller created 
 
 The :code:`$internalModelClass` creates the model for you, so you don't have to create one manually (and define get and
 set actions), :code:`$internalModelName` names the response container.
+
+Similarly, we will do this for the :code:`ServiceController` aswell
+
+.. code-block:: php
+   :caption: /usr/local/opnsense/mvc/app/controllers/OPNsense/HelloWorld/Api/SettingsController.php
+
+    class ServiceController extends ApiMutableServiceControllerBase
+    {
+        protected static $internalServiceClass = 'OPNsense\HelloWorld\HelloWorld';
+        protected static $internalServiceClass = 'helloworld';
+    }
 
 You can test the result (while logged in as root), by going to this address:
 
