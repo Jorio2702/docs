@@ -276,18 +276,7 @@ SettingsController.php and ServiceController.php)
     use \OPNsense\Base\ApiMutableModelControllerBase;
     class SettingsController extends ApiMutableModelControllerBase
     {
-        public function getAction()
-        {
-            $data = parent::getAction();
-            $data[self::$internalModelName]['general']['%ToEmail'] = gettext('Enter recipient here');
-
-            return $data;
-        }
     }
-
-.. Note::
-    The :code:`getAction()` function can add dynamic extra information to data fetches. When we get to fetching the data 
-    this will be further explained. 
 
 .. code-block:: php
     :caption: /usr/local/opnsense/mvc/app/controllers/OPNsense/HelloWorld/Api/ServiceController.php
@@ -481,7 +470,20 @@ it should return the data.  For this we add two lines to the controller created 
     {
         protected static $internalModelClass = 'OPNsense\HelloWorld\HelloWorld';
         protected static $internalModelName = 'helloworld';
+
+        public function getAction()
+        {
+            $data = parent::getAction();
+            $data[self::$internalModelName]['general']['%ToEmail'] = gettext('Enter recipient here');
+
+            return $data;
+        }
     }
+
+
+.. Note::
+    The :code:`getAction()` function can add dynamic extra information to data fetches. When we get to fetching the data 
+    this will be further explained. 
 
 
 The :code:`$internalModelClass` creates the model for you, so you don't have to create one manually (and define get and
