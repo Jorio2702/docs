@@ -548,6 +548,7 @@ Add this to the index.volt template from the HelloWorld module:
 
 .. code-block:: html
 
+
     <script type="text/javascript">
         $( document ).ready(function() {
             mapDataToFormUI({'frm_GeneralSettings':"/api/helloworld/settings/get"}).done(function(data){
@@ -583,6 +584,7 @@ messages, just edit the model XML and add your message in the
 ValidationMessage tag. For example:
 
 .. code-block:: xml
+    :caption: /usr/local/opnsense/mvc/app/models/OPNsense/HelloWorld/HelloWorld.xml
 
     <ToEmail type="EmailField">
         <Required>Y</Required>
