@@ -487,7 +487,7 @@ it should return the data.  For this we add two lines to the controller created 
 The :code:`$internalModelClass` creates the model for you, so you don't have to create one manually (and define get and
 set actions), :code:`$internalModelName` names the response container.
 
-Similarly, we will do this for the :code:`ServiceController` aswell
+Similarly, we will do this for the :code:`ServiceController` as well
 
 .. code-block:: php
    :caption: /usr/local/opnsense/mvc/app/controllers/OPNsense/HelloWorld/Api/SettingsController.php
