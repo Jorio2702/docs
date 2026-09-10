@@ -177,10 +177,11 @@ this:
 
     <model>
         <mount>//OPNsense/helloworld</mount>
-        <description>
-            the OPNsense "Hello World" application
-        </description>
+            <description>
+                the OPNsense "Hello World" application
+            </description>
         <items>
+            <!-- container -->
         </items>
     </model>
 
